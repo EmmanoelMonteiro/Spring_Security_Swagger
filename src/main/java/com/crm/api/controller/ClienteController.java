@@ -58,7 +58,7 @@ public class ClienteController {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Cliente excluido com sucesso")
 	})
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
 	public String del(@PathVariable Long id) {
 		return clienteService.del(id);
 	}
