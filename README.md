@@ -7,15 +7,25 @@ Este projeto é um exemplo de como implementar autenticação e autorização em
 * Maven: Para gerenciamento de dependências e build do projeto.
 
 ## 📋 Funcionalidades
+
 ### Autenticação e Autorização
-* Login: Autenticação de usuários com geração de token JWT.
-* Registro: Criação de novos usuários com senha criptografada.
-* Controle de Acesso: Diferentes níveis de acesso para usuários ADMIN e USER.
+| Método       | Endpoint               | Descrição                          |
+|--------------|------------------------|------------------------------------|
+| `POST` 🔑    | `/auth/login`          | Autentica um usuário e retorna um token JWT.    |
+| `POST` 📝     | `/auth/register`      | Registra um novo usuário no sistema.            |
+
+📌 Observações
+* `Token JWT:` O token retornado no login deve ser incluído em requisições subsequentes via header `Authorization: Bearer <token>`.
+* `Roles Válidas:` `ADMIN` ou `USER` (definidas no enum `UserRole`).
+
 ### Gerenciamento de Clientes
-* Listagem: Lista todos os clientes cadastrados.
-* Cadastro: Adiciona um novo cliente.
-* Atualização: Atualiza os dados de um cliente existente.
-* Exclusão: Remove um cliente pelo ID.
+
+| Método       | Endpoint               | Descrição                          |
+|--------------|------------------------|------------------------------------|
+| `GET` 🟢      | `/v1/cliente`          | Lista todos os clientes.           |
+| `POST` 📩     | `/v1/cliente`          | Cria um novo cliente.              |
+| `PUT` ✏️      | `/v1/cliente`          | Atualiza um cliente existente.     |
+| `DELETE` 🗑️  | `/v1/cliente/{id}`     | Remove um cliente pelo ID.         |
 
 ## 🛠️ Tecnologias Utilizadas
 | Tecnologia | Descrição |
